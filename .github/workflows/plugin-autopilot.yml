@@ -6,19 +6,24 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  workflows: write
 
 jobs:
   scaffold:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PLUGIN_AUTOPILOT_TOKEN || github.token }}
 
       - name: Run Plugin Autopilot
         uses: imMamdouhaboammar/chatgpt-codex-plugin-autopilot@v0.8.0
         with:
           path: .
           action: analyze
-          create-pr: 'true'
+          create-pr: ${{ secrets.PLUGIN_AUTOPILOT_TOKEN != '' }}
           fail-on-error: 'true'
           summary: 'true'
+
+      - name: Explain missing scaffold token
+        if: ${{ secrets.PLUGIN_AUTOPILOT_TOKEN == '' }}
+        run: echo 'Analysis completed. Add the repository secret PLUGIN_AUTOPILOT_TOKEN (fine-grained PAT with Contents: write and Workflows: write) to enable scaffold PR creation.' >> "$GITHUB_STEP_SUMMARY"
