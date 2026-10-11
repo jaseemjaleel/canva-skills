@@ -3,34 +3,19 @@ name: ChatGPT & Codex Plugin Autopilot
 on:
   workflow_dispatch:
 
-defaults:
-  run:
-    shell: bash
-
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 jobs:
-  scaffold:
+  analyze:
     runs-on: ubuntu-latest
-    env:
-      PLUGIN_AUTOPILOT_TOKEN: ${{ secrets.PLUGIN_AUTOPILOT_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          token: ${{ env.PLUGIN_AUTOPILOT_TOKEN || github.token }}
 
-      - name: Run Plugin Autopilot
+      - name: Analyze repository with Plugin Autopilot
         uses: imMamdouhaboammar/chatgpt-codex-plugin-autopilot@v0.8.0
         with:
           path: .
           action: analyze
-          create-pr: ${{ env.PLUGIN_AUTOPILOT_TOKEN != '' }}
           fail-on-error: 'true'
           summary: 'true'
-
-      - name: Explain missing scaffold token
-        if: ${{ env.PLUGIN_AUTOPILOT_TOKEN == '' }}
-        run: |
-          echo "Analysis completed. Add repository secret PLUGIN_AUTOPILOT_TOKEN (fine-grained PAT with Contents: write and Workflows: write) to enable scaffold PR creation." >> "$GITHUB_STEP_SUMMARY"
