@@ -1,0 +1,31 @@
+name: ChatGPT & Codex Plugin CI
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate-and-package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate and Package Plugin
+        uses: imMamdouhaboammar/chatgpt-codex-plugin-autopilot@v0.8.0
+        with:
+          action: 'auto'
+          output-dir: 'dist'
+          fail-on-error: 'true'
+
+      - name: Upload Plugin Release Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: codex-plugin-package
+          path: dist/
