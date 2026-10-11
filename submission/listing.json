@@ -1,0 +1,37 @@
+{
+  "name": "Canva Skills",
+  "subtitle": "ChatGPT & Codex plugin for canva-skills",
+  "description": "Automate workflows and execute capabilities for canva-skills.",
+  "category": "Developer Tools",
+  "developerName": "jaseemjaleel",
+  "websiteURL": "https://github.com/jaseemjaleel/canva-skills",
+  "customerSupportURL": "https://github.com/jaseemjaleel/canva-skills/issues",
+  "privacyPolicyURL": "https://github.com/jaseemjaleel/canva-skills/blob/main/PRIVACY.md",
+  "termsOfServiceURL": "https://github.com/jaseemjaleel/canva-skills/blob/main/TERMS.md",
+  "version": "0.1.0",
+  "packageName": "canva-skills",
+  "capabilities": [
+    "Brand Check capability",
+    "Bulk Create capability",
+    "Edit Design capability",
+    "Get Design Feedback capability",
+    "Implement Feedback capability",
+    "Resize For Social Media capability"
+  ],
+  "starterPrompts": [
+    "Show available capabilities for canva-skills.",
+    "Run automated tasks using canva-skills plugin.",
+    "Explain how to configure workflows for canva-skills."
+  ],
+  "brand": {
+    "concept": "Clean ChatGPT & Codex plugin integration for canva-skills.",
+    "lightLogo": "./assets/logo-light.svg",
+    "darkLogo": "./assets/logo-dark.svg",
+    "composerIcon": "./assets/mark.svg"
+  },
+  "publisherVerification": {
+    "required": true,
+    "status": "verify-in-openai-platform-before-submission"
+  },
+  "note": "Repository-maintained evidence format for submission preparation."
+}
