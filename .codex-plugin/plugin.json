@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "name": "canva-skills",
+  "version": "0.1.0",
+  "description": "Auto-scaffolded ChatGPT & Codex plugin for canva-skills",
+  "architecture": "skills-only",
+  "skills": [
+    "brand-check",
+    "bulk-create",
+    "edit-design",
+    "get-design-feedback",
+    "implement-feedback",
+    "resize-for-social-media",
+    "marketplace",
+    "readme",
+    "plugin-autopilot"
+  ],
+  "entrypoint": "skills/",
+  "assets": {
+    "logoLight": "assets/logo-light.svg",
+    "logoDark": "assets/logo-dark.svg",
+    "mark": "assets/mark.svg"
+  },
+  "repository": "https://github.com/jaseemjaleel/canva-skills",
+  "license": "MIT",
+  "_generatedBy": "chatgpt-codex-plugin-autopilot"
+}
